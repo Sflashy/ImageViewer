@@ -1,0 +1,49 @@
+﻿<Window x:Class="ImageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        FontFamily="Roboto"
+        FontWeight="Medium"
+        Foreground="#DDBDBDBD"
+        FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Height="150"
+        Width="450"
+        Title="Image Viewer"
+        MouseLeftButtonDown="DragWindow"
+        KeyDown="KeyEvents">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.9" Color="#FF141414"/>
+    </Window.Background>
+    <Grid>
+        <materialDesign:Card Background="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Viewbox  Grid.Row="0" MaxHeight="900" MaxWidth="1800" Stretch="Uniform"><Image Name="Image"/></Viewbox>
+                
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Height="30" Orientation="Horizontal" Margin="5">
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True"
+                            Click="UploadFile"><materialDesign:PackIcon Kind="ShareVariant" ToolTip="Share"/></Button>
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
+                            Click="CopyImage"><materialDesign:PackIcon Kind="ContentCopy" ToolTip="Copy"/></Button>
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
+                            Click="ExitApp"><materialDesign:PackIcon Kind="Close" Height="23" Width="23" ToolTip="Exit"/></Button>
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
+                            Click="RemoveFile"><materialDesign:PackIcon Kind="Delete" Height="18" Width="18" ToolTip="Delete"/></Button>
+                    </StackPanel>
+                </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>
