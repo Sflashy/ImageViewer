@@ -5,4 +5,4 @@ This is an Image Viewer made with .Net
 Download the file and make it your default image viwer
 
 #### Screenshots
-![ImageViewer](/docs/images/screenshot1.jpeg)
+![ImageViewer](/docs/images/screenshot.jpeg)
