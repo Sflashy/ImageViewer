@@ -31,16 +31,18 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
-                <Viewbox  Grid.Row="0" MaxHeight="900" MaxWidth="1800" Stretch="Uniform"><Image Name="Image"/></Viewbox>
+                <Viewbox  Grid.Row="0" MaxHeight="950" MaxWidth="1800" Stretch="Uniform"><Image Name="Image"/></Viewbox>
                 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Height="30" Orientation="Horizontal" Margin="5">
-                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True"
+                    <Button Name="FileDetails" Style="{StaticResource MaterialDesignToolButton}" Cursor="Arrow" Width="30" Padding="2 0 2 0"
+                            MouseEnter="ShowFileDetails"><materialDesign:PackIcon Kind="Information"/></Button>
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" 
                             Click="UploadFile"><materialDesign:PackIcon Kind="ShareVariant" ToolTip="Share"/></Button>
-                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
-                            Click="CopyImage"><materialDesign:PackIcon Kind="ContentCopy" ToolTip="Copy"/></Button>
-                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" 
                             Click="ExitApp"><materialDesign:PackIcon Kind="Close" Height="23" Width="23" ToolTip="Exit"/></Button>
-                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" materialDesign:RippleAssist.IsCentered="True"
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0" 
+                            Click="CopyImage"><materialDesign:PackIcon Kind="ContentCopy" ToolTip="Copy"/></Button>
+                    <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2,0,2,0"
                             Click="RemoveFile"><materialDesign:PackIcon Kind="Delete" Height="18" Width="18" ToolTip="Delete"/></Button>
                     </StackPanel>
                 </Grid>
