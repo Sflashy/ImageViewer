@@ -3,7 +3,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace ImageViewer
 {
@@ -60,5 +63,27 @@ namespace ImageViewer
         }
         
         #endregion
+
+        private void ShowFileDetails(object sender, MouseEventArgs e)
+        {
+            var tooltip = new ToolTip();
+            tooltip.Placement = PlacementMode.MousePoint;
+            tooltip.Opacity = 0.9;
+            tooltip.Background = new SolidColorBrush(Color.FromRgb(33, 33, 33));
+            tooltip.Foreground = new SolidColorBrush(Color.FromRgb(200, 200, 200));
+            tooltip.Content = $"{Path.GetFileName(_image.FilePath)} ({_image.BitmapImage.PixelWidth} x {_image.BitmapImage.PixelHeight}) {BytesToString(new FileInfo(_image.FilePath).Length)}";
+            FileDetails.ToolTip = tooltip;
+        }
+        
+        private static string BytesToString(long byteCount)
+        {
+            string[] suf = { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
+            if (byteCount == 0)
+                return "0" + suf[0];
+            long bytes = Math.Abs(byteCount);
+            int place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1024)));
+            double num = Math.Round(bytes / Math.Pow(1024, place), 1);
+            return (Math.Sign(byteCount) * num).ToString() + suf[place];
+        }
     }
 }
