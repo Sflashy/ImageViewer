@@ -1,5 +1,5 @@
 #### What is this?
-This is an Image Viewer made with .Net
+This is an Image Viewer made with .NET Framework
 
 #### How to use?
 Download the app and make it as your default image viewer
